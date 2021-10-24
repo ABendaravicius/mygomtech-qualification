@@ -23,7 +23,7 @@ router.post('/api/items', authentication, (req, res) => {
     name,
     role,
     email,
-    createdAt: new Date().toDateString(),
+    createdAt: new Date().toISOString(),
   })
 
   res.status(200).send();

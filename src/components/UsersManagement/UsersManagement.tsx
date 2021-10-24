@@ -10,6 +10,7 @@ import itemHasWrongEmail from "~/utils/itemHasWrongEmail";
 import itemHasReusedEmail from "~/utils/itemHasReusedEmail";
 import itemIsOld from "~/utils/itemIsOld";
 import { useUserContext } from '../UserContext';
+import React from "react";
 
 const UsersManagement = () => {
   const {
@@ -23,6 +24,13 @@ const UsersManagement = () => {
     isLoading,
     errorMessage,
   } = useItemsProvider();
+
+  const forceUpdate : () =>
+    void = React.useState()[1].bind(null, {});
+
+  const handleItemUpdate = (items) => {
+    forceUpdate();
+  }
 
   if (isLoading || userDataIsLoading) {
     return <LoadingScreen/>
@@ -38,16 +46,16 @@ const UsersManagement = () => {
       <Filter items={items}/>
       <Switch>
         <Route exact path={Routes.Users}>
-          <List items={items}/>
+          <List items={items} itemUpdate={handleItemUpdate}/>
         </Route>
         <Route path={Routes.Wrong}>
-          <List items={items.filter((item) => itemHasWrongEmail(item))}/>
+          <List items={items.filter((item) => itemHasWrongEmail(item))} itemUpdate={handleItemUpdate}/>
         </Route>
         <Route path={Routes.Reused}>
-          <List items={items.filter((item) => itemHasReusedEmail(item, items))}/>
+          <List items={items.filter((item) => itemHasReusedEmail(item, items))} itemUpdate={handleItemUpdate}/>
         </Route>
         <Route path={Routes.Old}>
-          <List items={items.filter((item) => itemIsOld(item))}/>
+          <List items={items.filter((item) => itemIsOld(item))} itemUpdate={handleItemUpdate}/>
         </Route>
       </Switch>
     </div>

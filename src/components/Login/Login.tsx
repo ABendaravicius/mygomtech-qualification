@@ -70,14 +70,12 @@ const Login = () => {
 
     event.preventDefault();
     setErrorMessage(null);
-    console.log(validateForm());
 
     if(validateForm()) {
       try {
         await login(username, password);
         push(Routes.Users);
       } catch (error) {
-        console.log(error);
         setErrorMessage(error.message);
         setLoading(false);
       }
