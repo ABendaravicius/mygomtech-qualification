@@ -10,6 +10,7 @@ const Login = () => {
   const {push} = useHistory();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const [loading, setLoading] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string>();
   const [errors, setErrors] = useState<any>({});
 
@@ -65,6 +66,8 @@ const Login = () => {
   };
 
   const handleSubmit = async (event: SyntheticEvent<HTMLFormElement>) => {
+    setLoading(true);
+
     event.preventDefault();
     setErrorMessage(null);
     console.log(validateForm());
@@ -76,6 +79,7 @@ const Login = () => {
       } catch (error) {
         console.log(error);
         setErrorMessage(error.message);
+        setLoading(false);
       }
     }
 
@@ -110,7 +114,11 @@ const Login = () => {
             <span className="input-item__message sm-text">{errors.password}</span>}
         </div>
         <button type="submit" className="button mt-24px" disabled={errors.username || errors.password}>
-          Login
+          {
+            !loading
+            ? 'Login'
+            : <div className="loader">Loading...</div>
+          }
         </button>
         <ErrorBlock error={errorMessage}/>
       </form>
