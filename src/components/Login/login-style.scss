@@ -1,20 +1,21 @@
-.login-page {
-  background: url('/public/assets/mountain.jpg');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100%;
+.login {
+  &-page {
+    background: url('/public/assets/mountain.jpg') center no-repeat;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
 
-  .login-form {
+  &-form {
+    position: relative;
     display: flex;
     justify-content: center;
     flex-direction: column;
     background-color: white;
     padding: 50px;
-    width: 350px;
+    width: 500px;
     height: 400px;
   }
 }

@@ -2,6 +2,10 @@
 @import './_spacings';
 @import './__mixins.scss';
 
+* {
+  box-sizing: border-box;
+}
+
 html, body, #app {
   height: 100%;
   margin: 0;
@@ -13,8 +17,43 @@ html, body, #app {
   text-align: center;
 }
 
-.input {
-  height: 32px;
+.sm-text {
+  font-size: 12px;
+  line-height: 16px;
+
+  &.error {
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 36px;
+    color: $red;
+  }
+}
+
+.input-item {
+  position: relative;
+
+  &__input {
+    width: 100%;
+    height: 32px;
+    padding: 8px;
+
+    &.error {
+      border: $red 1px solid;
+      border-radius: 2px;
+
+      &:focus,
+      &:focus-visible {
+        border: $red 2px solid;
+      }
+    }
+  }
+  &__message {
+    position: absolute;
+    left: 0;
+    bottom: -18px;
+    color: $red;
+  }
 }
 
 .button {
