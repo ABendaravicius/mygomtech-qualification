@@ -9,6 +9,10 @@
   background-color: $red;
   color: white;
 
+  &.success {
+    background-color: $green;
+  }
+
   .user-section {
     top: 16px;
     right: 32px;;
