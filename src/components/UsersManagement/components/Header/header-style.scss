@@ -1,16 +1,26 @@
 @import '../../../../style/_variables';
+@import '../../../../style/_mixins';
 
 .header {
-  height: 160px;
+  padding: 24px 16px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  flex: 0;
   background-color: $red;
   color: white;
 
   &.success {
     background-color: $green;
+  }
+
+  h1 {
+    text-align: center;
+
+    @include media-breakpoint-down(sm) {
+      margin-top: 12px;
+    }
   }
 
   .user-section {
@@ -28,6 +38,13 @@
       margin-left: 12px;
       border-radius: 9px;
       border-width: 0;
+    }
+
+    @include media-breakpoint-down(sm) {
+      display: flex;
+      position: static;
+      justify-content: flex-end;
+      width: 100%;
     }
   }
 }

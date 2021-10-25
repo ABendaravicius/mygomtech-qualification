@@ -20,7 +20,7 @@ const Header: FC<IHeader> = ({items, username}) => {
         <button onClick={logout}>{`Logout ${username}`}</button>
       </div>
       <h1>{`${wrongEmails.length} Emails are wrong`}</h1>
-      <span>Email validator to protect your company from bad registrations</span>
+      <span className='text-center'>Email validator to protect your company from bad registrations</span>
     </div>
   )
 };

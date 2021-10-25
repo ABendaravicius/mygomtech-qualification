@@ -41,7 +41,7 @@ const UpdateModal: FC<IUpdateModal> = ({ item, itemUpdate}) => {
   return (
     <>
       <button className="update" onClick={() => setShowModal(true)}>
-        Update Password
+        Update Email
       </button>
       <Modal
         className="modal"
@@ -57,15 +57,15 @@ const UpdateModal: FC<IUpdateModal> = ({ item, itemUpdate}) => {
           className="input"
           onChange={(event) => setNewEmail(event.target.value)} 
         />
-        <div className="pt-12px text-center">
+        <div className="modal__button-wrapper pt-12px text-center">
           <button
-            className="button"
+            className="modal__button button"
             onClick={handleUpdate}
             disabled={newEmail === ''}
           >
             Change
           </button>
-          <button className="button ml-12px" onClick={() => {
+          <button className="modal__button modal__button--cancel button ml-12px" onClick={() => {
             setShowModal(false)
           }}>
             Cancel

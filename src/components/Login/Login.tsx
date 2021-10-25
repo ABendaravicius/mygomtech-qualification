@@ -77,10 +77,10 @@ const Login = () => {
         push(Routes.Users);
       } catch (error) {
         setErrorMessage(error.message);
-        setLoading(false);
       }
     }
 
+    setLoading(false);
   };
 
   return (
@@ -95,10 +95,10 @@ const Login = () => {
             placeholder="Username"
             name="username"
             type="text"
-            className={`input-item__input mt-24px ${errors.username && 'error'}`}
+            className={`input-item__input input mt-24px ${errors.username && 'error'}`}
           />
           {errors.username &&
-            <span className="input-item__message sm-text">{errors.username}</span>}
+            <span className="input-item__message  sm-text">{errors.username}</span>}
         </div>
         <div className="input-item">
           <input
@@ -106,7 +106,7 @@ const Login = () => {
             placeholder="Password"
             name="password"
             type="password"
-            className={`input-item__input mt-24px ${errors.password && 'error'}`}
+            className={`input-item__input input mt-24px ${errors.password && 'error'}`}
           />
           {errors.password &&
             <span className="input-item__message sm-text">{errors.password}</span>}
@@ -115,7 +115,7 @@ const Login = () => {
           {
             !loading
             ? 'Login'
-            : <div className="loader">Loading...</div>
+            : <div className="loader"></div>
           }
         </button>
         <ErrorBlock error={errorMessage}/>
