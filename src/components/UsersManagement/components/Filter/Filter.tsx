@@ -14,7 +14,8 @@ interface IFilter {
 
 const Filter: FC<IFilter> = ({items}) => {
   const wrongItemsCount = items.filter(itemHasWrongEmail).length;
-  const reusedItemsCount = items.filter((item) => itemHasReusedEmail(item, items)).length;
+  const reusedItemsCount = items.filter((item) =>
+    itemHasReusedEmail(item, items)).length;
   const oldItemsCount = items.filter(itemIsOld).length;
 
   return (

@@ -12,7 +12,9 @@ interface IHeader {
 }
 
 const Header: FC<IHeader> = ({items, username}) => {
-  const wrongEmails = items.filter(item => itemHasWrongEmail(item) || itemHasReusedEmail(item, items));
+  const wrongEmails = items.filter(item =>
+    itemHasWrongEmail(item) || itemHasReusedEmail(item, items)
+  );
 
   return (
     <div className={`header ${wrongEmails.length === 0 && 'success'}`}>
