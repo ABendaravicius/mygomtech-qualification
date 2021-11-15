@@ -3,7 +3,11 @@ import { employees } from '../data';
 let items = [];
 
 export const updateItem = (item) => {
-  items.push(item);
+  if (items.some(i => i.id === item.id)) {
+    items[items.indexOf(items.find(i => i.id === item.id))] = item;
+  } else {
+    items.push(item);
+  }
 };
 
 export const getItems = () => {

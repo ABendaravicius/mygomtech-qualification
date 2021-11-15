@@ -1,20 +1,39 @@
 @import '../../../../style/_variables';
+@import '../../../../style/_mixins';
 
 .filter {
   display: flex;
   justify-content: center;
   background-color: $grey-lightest;
   padding: 12px;
+  flex-wrap: wrap;
+  row-gap: 8px;
 
   .filter-tab {
     background-color: $grey-light;
     font-size: larger;
     font-weight: 700;
+    text-align: center;
     padding: 12px 18px;
     cursor: pointer;
     user-select: none;
-    margin-left: 12px;
     border-radius: 9px;
+
+    &:not(:last-child) {
+      margin-right: 8px;
+    }
+
+    @include media-breakpoint-down(md) {
+      width: 47.5%;
+
+      &:not(:last-child) {
+        margin-right: 0;
+      }
+
+      &:nth-child(2n-1) {
+        margin-right: 8px;
+      }
+    }
 
     &:hover {
       background-color: $grey;
